@@ -17,7 +17,9 @@ width: 100%;
 .serchbtn{
     color: black;
     position: absolute;
-    right: 1rem;
+    right: 0rem;
+    background-color: white;
+    border-color: white;
 }
 .showmap{
     border-color: blue;
@@ -34,4 +36,8 @@ width: 100%;
 #img{
     width:100%;
     height: 162px;
+}
+#img1{
+    width:100%;
+    height: 162px;  
 }
