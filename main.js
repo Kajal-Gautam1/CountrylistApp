@@ -23,8 +23,8 @@ $.get(link,(Response)=>{
   let counimg=Response[0].flags.png;
   console.log(counimg);
 
-  document.querySelector('#img1').innerHTML= `<img src=${counimg}>`;
- 
+  const imgItem=document.querySelector('#img1');
+ imgItem.src=counimg;
 })
 
 
