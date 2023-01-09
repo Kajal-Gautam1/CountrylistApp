@@ -1,0 +1,28 @@
+.container{
+    margin-top: 1%;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: ridge;
+
+  }
+p{
+    color: black;
+   line-height: 8pt;
+   font-size: 110%;
+   margin-left: 10%;
+}
+#myimg{
+    height: 270px;
+}
+#card-Struc{
+    border-color:whitesmoke;
+    
+}
+  
+.column{
+    float: left;
+    width: 33.33%;
+  padding: 7px;
+
+} 
