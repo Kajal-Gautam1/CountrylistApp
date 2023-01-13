@@ -33,25 +33,30 @@ document.querySelector('#countryname').innerHTML=counname;
 //details of the country
 let Capital=Response[0].capital[0];
 console.log(Capital);
-document.querySelector('#Capital').innerHTML=Capital;
+document.querySelector('#Capital').innerHTML=`Capital: ${Capital}`;
 
 
 let populationn=Response[0].population[0];
 console.log(populationn);
-document.querySelector('#Population').innerHTML=populationn;
+document.querySelector('#Population').innerHTML=`Population: ${populationn}`;
 
 let counRegion=Response[0].region;
-document.querySelector('#Region').innerHTML=counRegion;
+document.querySelector('#Region').innerHTML=`Region: ${counRegion}`;
 
-document.querySelector('#Sub-region').innerHTML=Response[0].subregion;
+let counSubregion=Response[0].subregion;
+document.querySelector('#Sub-region').innerHTML=`Sub-Region: ${counSubregion}`;
 
-document.querySelector('#Area').innerHTML=Response[0].area;
+let counarea=Response[0].area
+document.querySelector('#Area').innerHTML=`Area: ${counarea}`;
 
-document.querySelector('#Languages').innerHTML=Object.values(Response[0].languages);
+let counLang=Object.values(Response[0].languages);
+document.querySelector('#Languages').innerHTML=`Languages: ${ counLang}`;
 
-document.querySelector('#Currencies').innerHTML=Response[0].currencies[Object.keys(Response[0].currencies)].name;
+let CounCurrency=Response[0].currencies[Object.keys(Response[0].currencies)].name;
+document.querySelector('#Currencies').innerHTML=`Currencies: ${CounCurrency}`;
 
-document.querySelector('#timezones').innerHTML=Response[0].timezones;
+let countimezone=Response[0].timezones;
+document.querySelector('#timezones').innerHTML=`timezone: ${countimezone}`;
 
 //document.querySelector('#NativeName').innerHTML=Response[0].hin.common;
 
