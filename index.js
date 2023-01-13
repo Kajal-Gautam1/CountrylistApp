@@ -1,3 +1,51 @@
+const countryList = document.querySelector(".posts")
+let p = fetch("https://restcountries.com/v3.1/all");
+p.then((res) => {
+    return res.json()
+}).then((value2) => {
+    console.log(value2)
+        let box = value2.map(function(response){
+            return `<div class="box">
+            <div class="card mb-3">
+        <div class="row g-0">
+        <div class="col-md-4">
+            <img class="img-fluid " id="img1" src="${response.flags.png}" alt="">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h4 class="card-title" > ${response.name.common}</h4>
+                <p class="card-text" id="">Currency:</p>
+                <p> Current date and time:${response.timezones}</p>
+                <a href="${response.maps.googleMaps}" id="map1" onclick="SwitzerlandMap()">
+                 <button class="showmap">Show Map</button>
+                </a>
+                <a href="/detail.html?country=${response.cca3}" id="changedur2" >
+                <button class="detail" id="detail2" onclick="DetailofSwitzerland()">Details</button>
+                </a>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+`
+})
+       
+        box = box.join("");
+        countryList.innerHTML = box;
+ })
+
+        
+
+
+
+
+
+
+
+
+
+
+
 let searchcitybutton=document.querySelector('.serchbtn');
 
 let countryinp=document.getElementById("seacrchid");
@@ -43,7 +91,7 @@ if(data.status===404){
   console.log(counimg);
 
 //adding the image in card acc to the searched country
-  const imgItem=document.querySelector('#img1');
+  const imgItem=document.querySelector('#img');
   imgItem.src=counimg;
  
 //geting cca3 code
@@ -53,7 +101,7 @@ if(data.status===404){
   //getting the maps
   counMap=data[0].maps.googleMaps;
   console.log(counMap);
-  document.getElementById("map1").href=counMap;
+  document.getElementById("map").href=counMap;
 
   //getting currency
   CounCurrency=data[0].currencies[Object.keys(data[0].currencies)].name;
@@ -114,40 +162,40 @@ function ChangetitleofSearchedCity(counName) {
   }
 
 
-function DetailofSwitzerland(){
-    let nowloc=window.location.hostname;
-    console.log(nowloc);
-    let newurl=`/detail.html?country=CHE`;
-    document.getElementById("changedur2").href=newurl;
+// function DetailofSwitzerland(){
+//     let nowloc=window.location.hostname;
+//     console.log(nowloc);
+//     let newurl=`/detail.html?country=CHE`;
+//     document.getElementById("changedur2").href=newurl;
 
-}
+// }
 
-function DetailofAlbania(){
-    let nowloc=window.location.hostname;
-    console.log(nowloc);
-    let newurl=`/detail.html?country=ALB`;
-    document.getElementById("changedur3").href=newurl;
+// function DetailofAlbania(){
+//     let nowloc=window.location.hostname;
+//     console.log(nowloc);
+//     let newurl=`/detail.html?country=ALB`;
+//     document.getElementById("changedur3").href=newurl;
   
-}
+// }
 
-function DetailofAlergia(){
-    let nowloc=window.location.hostname;
-    console.log(nowloc);
-    let newurl=`/detail.html?country=DZA`;
-    document.getElementById("changedur4").href=newurl;
+// function DetailofAlergia(){
+//     let nowloc=window.location.hostname;
+//     console.log(nowloc);
+//     let newurl=`/detail.html?country=DZA`;
+//     document.getElementById("changedur4").href=newurl;
   
-}
+// }
 
-function SwitzerlandMap(){
-    document.getElementById("map2").href=`https://goo.gl/maps/uVuZcXaxSx5jLyEC9`;
+// function SwitzerlandMap(){
+//     document.getElementById("map2").href=`https://goo.gl/maps/uVuZcXaxSx5jLyEC9`;
   
-}
+// }
 
-function AlbaniaMap(){
-    document.getElementById("map3").href=`https://goo.gl/maps/BzN9cTuj68ZA8SyZ8`;
+// function AlbaniaMap(){
+//     document.getElementById("map3").href=`https://goo.gl/maps/BzN9cTuj68ZA8SyZ8`;
   
-}
-function AlgeriaMap(){
-    document.getElementById("map4").href=`https://goo.gl/maps/RsAyAfyaiNVb8DpW8`;
+// }
+// function AlgeriaMap(){
+//     document.getElementById("map4").href=`https://goo.gl/maps/RsAyAfyaiNVb8DpW8`;
   
-}
+// }
