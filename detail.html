@@ -1,115 +1,119 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
    
     <title>Document</title>
-   </head>
+    
+</head>
 <body>
     
+   
     <div class="container">
-        <h2 id="countryname">India</h2>
-        <div class="card mb-3" id="card-Struc">
-            <div class="row g-0" >
-            <div class="col-md-4">
-                <img class="img-fluid " id="myimg" src="india-flag.png" alt="">
-            </div>
-            <div class="col-md-8" >
-                <div class="card-body" >
-                    <h3 class="card-title" id="mytitle"></h3>
-               
-                    <div class="data-wrapper">
-                  <h4>Native Name:</h4>
-                  <p id="NativeName"> </p>
-                  </div>   
-                 
-                  <div class="data-wrapper">
-                    <h4>Capital: </h4>
-                    <p id="Capital">cap</p>
-                  </div>
-
-                  <div class="data-wrapper">
-                    <h4>Population: </h4>
-                 <p id="Population">Population: </p>
-                  </div>
-
-                  <div class="data-wrapper">
-                    <h4>Region: </h4>
-                    <p id="Region">Asia: </p>
-                  </div>
-
-                  <div class="data-wrapper">
-                    <h4>Sub-region:</h4>
-                  <p id="Sub-region">Sub-region:</p>
-                  </div>
-
-                  <div class="data-wrapper">
-                    <h4>Area:  </h4>
-                  <p id="Area">Area: </p>
-                  </div>
-
-                  <div class="data-wrapper">
-                    <h4>Country Code:</h4>
-                 <p id="Country Code">Country Code: </p>
-                  </div>
-
-                  <div class="data-wrapper">
-                    <h4>Languages:</h4>
-                 <p id="Languages">Languages:</p>
-                  </div>
-
-                  <div class="data-wrapper">
-                    <h4>Currencies:</h4>
-                 <p id="Currencies">Currencies:</p>
-                  </div>
-
-                  <div id="data-wrapper">
-                    <h4>timezones: </h4>
-                    <p id="timezones"></p>
-                  </div>
-                   
-                    </div>
-            </div>
-            </div>
-        </div>
-      <div id="neighbourCountries" >
-        <h5>Neighbour Countries</h5><br>
-        <div class="row">
-            <div class="column">
-              <img src="" class="img-fluid" id="my1"  >
-            </div>
-            <div class="column">
-              <img src="" class="img-fluid" id="my2" >
-            </div>
-            <div class="column">
-              <img src="" class="img-fluid" id="my3"  >
-            </div>
-          </div>
-          
-      </div><br>
-      <div class="row">
-        <div class="column">
-          <img src="" class="img-fluid" id="my4" >
-        </div>
-        <div class="column">
-          <img src="" class="img-fluid" id="my5" >
-        </div>
-        <div class="column">
-          <img src="" class="img-fluid" id="my6" >
-        </div>
+     <h3>Countries</h3>
+    <div class="searchBox">
+        <input placeholder="search countries" class="searchtext" id="seacrchid">
+        <button  class="serchbtn" id="seacrchid2">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
       </div>
-      
-  </div><br>
+      <p id="errormsg" style="color: red;"></p>
+    
+    <div class="card mb-3">
+        <div class="row g-0">
+        <div class="col-md-4">
+            <img class="img-fluid " id="img1" src="Flag_of_Afghanistan.png" alt="">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h4 class="card-title" id="title1">Afghanistan</h4>
+                <p class="card-text" id="curr">Curreny:Afghan afghani </p>
+                <p>current date and time:25 jan 2022,14:34</p>
+                <a href="#" id="map1">
+                <button class="showmap">Show Map</button>
+            </a>
+                <a href="detail.html?country=IND" id="changedurl">
+                 
+                    <button class="detail" id="detail" >Details</button>
+                </a>
+               </div>
+        </div>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="row g-0">
+        <div class="col-md-4">
+            <img class="img-fluid " id="img" src="Switzerland.png" alt="">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h4 class="card-title" >Switzerland</h4>
+                <p class="card-text">Curreny: Swiss fran<br>current date and time:25 jan 2022,14:34 </p>
+                <a href="#" id="map2" onclick="SwitzerlandMap()">
+                 <button class="showmap">Show Map</button>
+                </a>
+                <a href="#" id="changedur2" >
+                <button class="detail" id="detail2" onclick="DetailofSwitzerland()">Details</button>
+                </a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="row g-0">
+        <div class="col-md-4">
+            <img class="img-fluid " id="img" src="Flag_of_Albania.png" alt="">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h4 class="card-title">Albania</h4>
+                <p class="card-text">Curreny: Albanian lek<br>current date and time:25 jan 2022,14:34 </p>
+                <a href="#" id="map3" onclick="AlbaniaMap()">
+                <button class="showmap">Show Map</button>
+                </a>
+                <a href="#" id="changedur3">
+                <button class="detail" id="detail3" onclick="DetailofAlbania()">Details</button>
+                </a>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="row g-0">
+        <div class="col-md-4">
+            <img class="" id="img" src="Alergia-flag.png" alt="">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h4 class="card-title">Algeria</h4>
+                <p class="card-text">Curreny: Algerian Dinar<br>current date and time:25 jan 2022,14:34 </p>
+                <a href="#" id="map4" onclick="AlgeriaMap()">
+              <button class="showmap">Show Map</button>
+                </a>
+                <a href="#" id="changedur4">
+                    <button class="detail" id="detail4" onclick="DetailofAlergia()">Details</button>
+                </a>
+            </div>
+        </div>
+        </div>
+    </div>
+    </div><br><br><br>
 
-         </div>
 
+    <!--including the detail.html file inside the indeex.html
+        <div class="detailfile">
+
+        </div>-->
+        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="detail.js"></script>
-
+    <script  src="index.js"></script>
+  
 </body>
 </html>
