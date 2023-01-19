@@ -36,7 +36,7 @@ console.log(Capital);
 document.querySelector('#Capital').innerHTML=`Capital: ${Capital}`;
 
 
-let populationn=Response[0].population[0];
+let populationn=Response[0].population;
 console.log(populationn);
 document.querySelector('#Population').innerHTML=`Population: ${populationn}`;
 
@@ -55,8 +55,11 @@ document.querySelector('#Languages').innerHTML=`Languages: ${ counLang}`;
 let CounCurrency=Response[0].currencies[Object.keys(Response[0].currencies)].name;
 document.querySelector('#Currencies').innerHTML=`Currencies: ${CounCurrency}`;
 
-let countimezone=Response[0].timezones;
+let countimezone= Response[0].timezones;
 document.querySelector('#timezones').innerHTML=`timezone: ${countimezone}`;
+
+// let countrycode=Response[0].idd.root;
+// document.querySelector('#Country Code').innerHTML=`Country Code:${countrycode}`;
 
 //document.querySelector('#NativeName').innerHTML=Response[0].hin.common;
 
