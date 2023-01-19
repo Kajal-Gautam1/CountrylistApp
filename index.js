@@ -5,6 +5,35 @@ p.then((res) => {
 }).then((value2) => {
     console.log(value2)
         let box = value2.map(function(response){
+         
+            let Country=`${response.name.common}`;
+            let timezone=`${response.timezones}`;
+let len=timezone.length;
+let newstring=timezone.substring(3,len+1);
+let offset=newstring.replace(":",".")
+
+function calcTime(Country, offset) {
+
+    // create Date object for current location
+    d = new Date();
+    
+    // convert to msec
+    // add local time zone offset
+    // get UTC time in msec
+    utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+    
+    // create new Date object for different city
+    // using supplied offset
+    nd = new Date(utc + (3600000*offset));
+    
+    // return time as a string
+    return " "+ nd.toLocaleString();
+    
+    }
+
+// let  CounCurrency=response.currencies[Object.keys(response.currencies)].name;
+
+    
             return `<div class="box">
             <div class="card mb-3">
         <div class="row g-0">
@@ -15,7 +44,7 @@ p.then((res) => {
             <div class="card-body">
                 <h4 class="card-title" > ${response.name.common}</h4>
                 <p class="card-text" id="">Currency:</p>
-                <p> Current date and time:${response.timezones}</p>
+                 <p> Current date and time: ${calcTime(Country,offset)}</p>
                 <a href="${response.maps.googleMaps}" id="map1" onclick="SwitzerlandMap()">
                  <button class="showmap">Show Map</button>
                 </a>
@@ -32,7 +61,8 @@ p.then((res) => {
        
         box = box.join("");
         countryList.innerHTML = box;
- })
+
+     })
 
         
 
@@ -40,16 +70,16 @@ p.then((res) => {
 
 
 
-
-
-
+//  function mycurrency(response[0].currencies){
+// if(response[0].currencies!=null){
+//  response[0].currencies[Object.keys(response[0].currencies)].name}
+// }
 
 
 
 let searchcitybutton=document.querySelector('.serchbtn');
 
 let countryinp=document.getElementById("seacrchid");
-
 
 searchcitybutton.addEventListener('click', function(){
 
@@ -79,6 +109,10 @@ if(data.status===404){
     document.getElementById("errormsg").innerHTML = "";
 }, 2000);
 }
+
+
+//for showing the details of first card......
+
     let counName= data[0].name.common;
     //calling funtion
    ChangetitleofSearchedCity(counName);
@@ -106,13 +140,29 @@ if(data.status===404){
   //getting currency
   CounCurrency=data[0].currencies[Object.keys(data[0].currencies)].name;
 document.querySelector("#curr").innerHTML=`Currency:${CounCurrency}`;
-
+console.log(CounCurrency);
 
 //getting timezone
-countimezone=data[0].timezones[0];
-console.log(countimezone);
-let theDate=new Date(Date.parse(`${countimezone}`));
-console.log(theDate.toLocaleString);
+let countimezone=data[0].timezones[0];
+let len=countimezone.length;
+let newstring=countimezone.substring(3,len+1);
+let offset=newstring.replace(":",".")
+// counName= data[0].name.common;
+   
+function calcTime(counName, offset) {
+
+    d = new Date();
+    utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+    nd = new Date(utc + (3600000*offset));
+    return " "+ nd.toLocaleString();
+    
+    }
+    
+ let htmlTemplate = `current date and time: ${calcTime(counName,offset)}`;
+document.querySelector('#dateandtime').innerHTML = htmlTemplate;
+ 
+
+
 
   let currentpageloc= window.location.href;
 console.log(currentpageloc);
@@ -138,8 +188,6 @@ document.getElementById("changedurl").href=newurl;
 
 
 
-   
-
    //  xhr.open('GET', "https://restcountries.com/v3.1/name/${name}?fullText=true" , true);
    
     // let xhr=new XMLHttpRequest();
@@ -155,6 +203,9 @@ document.getElementById("changedurl").href=newurl;
 }
 
 });
+  
+   
+// }
 
 function ChangetitleofSearchedCity(counName) {
     let htmlTemplate = `<h3>${counName}</h3>`;
